@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors({
-  origin: 'https://filexchange-ydt.vercel.app/',
+  origin: 'https://filexchange-ydt.vercel.app',
   credentials: true,
 }));
 
