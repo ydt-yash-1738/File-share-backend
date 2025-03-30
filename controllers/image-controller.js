@@ -73,7 +73,7 @@ export const uploadImage = async(request, response) => {
         console.log("File record created with ID:", file._id);
         
         // Use environment variable or fallback for base URL
-        const baseUrl = process.env.BASE_URL || 'https://file-share-backend-x6yn.onrender.com';
+        const baseUrl = process.env.BASE_URL || 'https://file-share-backend-iha5.onrender.com';
         const fileUrl = `${baseUrl}/api/files/file/${file._id}`;
         
         console.log("Returning file URL:", fileUrl);
