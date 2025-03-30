@@ -179,7 +179,7 @@ process.env.UPLOAD_DIR = uploadsDir;
 console.log(`Upload directory set to: ${uploadsDir}`);
 
 // Set base URL for file downloads
-process.env.BASE_URL = process.env.BASE_URL || 'https://file-share-backend-x6yn.onrender.com';
+process.env.BASE_URL = process.env.BASE_URL || 'https://file-share-backend-iha5.onrender.com';
 console.log(`Base URL set to: ${process.env.BASE_URL}`);
 
 // API routes
