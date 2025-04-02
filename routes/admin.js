@@ -8,15 +8,15 @@ const router = express.Router();
 
 // Admin Login Route
 router.post("/login", async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD) {
+    if (email !== process.env.ADMIN_EMAIL || password !== process.env.ADMIN_PASSWORD) {
         return res.status(401).json({ success: false, message: "Invalid credentials" });
     }
 
     // Generate JWT Token for admin
     const token = jwt.sign(
-        { username, isAdmin: true }, 
+        { email, isAdmin: true }, 
         process.env.ADMIN_SECRET, 
         { expiresIn: "1h" }
     );
