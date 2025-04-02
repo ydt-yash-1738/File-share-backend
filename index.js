@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import router from './routes/routes.js';
+import adminRoutes from './routes/admin.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
@@ -78,6 +79,7 @@ console.log(`Base URL set to: ${process.env.BASE_URL}`);
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/files', router);
+app.use('/api/admin', adminRoutes);
 
 // Static file serving for uploads directory
 // This ensures uploads can be accessed via HTTP
