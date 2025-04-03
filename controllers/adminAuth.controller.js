@@ -10,11 +10,22 @@ export const verifyAdmin = (req, res, next) => {
         return res.status(403).json({ success: false, message: "Access denied. No token provided." });
     }
 
+    // try {
+    //     const decoded = jwt.verify(token, process.env.ADMIN_SECRET);
+    //     req.admin = decoded;
+    //     next();
+    // } catch (error) {
+    //     return res.status(401).json({ success: false, message: "Invalid or expired token." });
+    // }
+
     try {
         const decoded = jwt.verify(token, process.env.ADMIN_SECRET);
+        if (!decoded.isAdmin) {
+            return res.status(403).json({ success: false, message: "Unauthorized access!" });
+        }
         req.admin = decoded;
         next();
     } catch (error) {
-        return res.status(401).json({ success: false, message: "Invalid or expired token." });
+        res.status(401).json({ success: false, message: "Invalid token!" });
     }
 };
